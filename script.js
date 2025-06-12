@@ -143,6 +143,46 @@ if (ctx) {
 const modal = document.getElementById('detail-modal');
 const modalBody = document.getElementById('modal-body');
 
+// Initialize modal touch handlers
+function initModalHandlers() {
+    // Handle touch events for closing modal
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    modal.addEventListener('touchstart', function(e) {
+        touchStartY = e.changedTouches[0].screenY;
+    }, {passive: true});
+    
+    modal.addEventListener('touchend', function(e) {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+        // Swipe down to close (only if swiped more than 50px)
+        if (touchEndY - touchStartY > 50) {
+            const modalContent = document.querySelector('.modal-content');
+            const scrollTop = modalContent ? modalContent.scrollTop : 0;
+            // Only close if at the top of the modal
+            if (scrollTop <= 0) {
+                modal.style.display = 'none';
+            }
+        }
+    }
+    
+    // Close on backdrop touch
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+}
+
+// Initialize handlers when DOM is ready
+if (modal) {
+    initModalHandlers();
+}
+
 function showDetail(type) {
     const details = {
         'product-problem': `
@@ -618,12 +658,6 @@ function expandCampaign(campaign) {
 
 function closeModal() {
     modal.style.display = 'none';
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
 }
 
 // Show commitment

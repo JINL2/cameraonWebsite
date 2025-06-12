@@ -953,6 +953,7 @@ body {
         max-height: calc(100vh - 60px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
     
     .close {
@@ -961,6 +962,11 @@ body {
         right: 10px;
         z-index: 2001;
         background: rgba(255,255,255,0.9);
+    }
+    
+    /* Prevent overscroll on modal */
+    .modal {
+        overscroll-behavior: contain;
     }
 }
 

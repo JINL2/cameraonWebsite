@@ -143,44 +143,65 @@ if (ctx) {
 const modal = document.getElementById('detail-modal');
 const modalBody = document.getElementById('modal-body');
 
-// Initialize modal touch handlers
-function initModalHandlers() {
-    // Handle touch events for closing modal
-    let touchStartY = 0;
-    let touchEndY = 0;
+// Body scroll lock functions
+function lockBodyScroll() {
+    // Save current scroll position
+    const scrollY = window.scrollY;
     
-    modal.addEventListener('touchstart', function(e) {
-        touchStartY = e.changedTouches[0].screenY;
-    }, {passive: true});
+    // Add class to body to prevent scrolling
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
     
-    modal.addEventListener('touchend', function(e) {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-    }, {passive: true});
-    
-    function handleSwipe() {
-        // Swipe down to close (only if swiped more than 50px)
-        if (touchEndY - touchStartY > 50) {
-            const modalContent = document.querySelector('.modal-content');
-            const scrollTop = modalContent ? modalContent.scrollTop : 0;
-            // Only close if at the top of the modal
-            if (scrollTop <= 0) {
-                modal.style.display = 'none';
-            }
-        }
-    }
-    
-    // Close on backdrop touch
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+    // For iOS Safari
+    document.documentElement.style.overflow = 'hidden';
 }
 
-// Initialize handlers when DOM is ready
+function unlockBodyScroll() {
+    // Get the scroll position from the body
+    const scrollY = document.body.style.top;
+    
+    // Remove the styles
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+    
+    // For iOS Safari
+    document.documentElement.style.overflow = '';
+    
+    // Restore scroll position
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}
+
+// Only close modal when clicking the X button
+function closeModal() {
+    modal.style.display = 'none';
+    unlockBodyScroll();
+}
+
+// Prevent modal from closing when clicking backdrop or modal content
 if (modal) {
-    initModalHandlers();
+    modal.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Also prevent touch events from closing
+    modal.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    });
+    
+    modal.addEventListener('touchend', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Prevent touchmove on the modal backdrop to stop background scrolling
+    modal.addEventListener('touchmove', function(e) {
+        if (e.target === modal) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 }
 
 function showDetail(type) {
@@ -425,6 +446,7 @@ function showDetail(type) {
     
     modalBody.innerHTML = details[type] || '<p>Không tìm thấy chi tiết</p>';
     modal.style.display = 'block';
+    lockBodyScroll();
     
     // Scroll modal to top after content is loaded
     setTimeout(() => {
@@ -646,6 +668,7 @@ function expandCampaign(campaign) {
     
     modalBody.innerHTML = campaigns[campaign] || '<p>Không tìm thấy chi tiết chiến dịch</p>';
     modal.style.display = 'block';
+    lockBodyScroll();
     
     // Scroll modal to top after content is loaded
     setTimeout(() => {
@@ -654,10 +677,6 @@ function expandCampaign(campaign) {
             modalContent.scrollTop = 0;
         }
     }, 10);
-}
-
-function closeModal() {
-    modal.style.display = 'none';
 }
 
 // Show commitment
@@ -701,6 +720,7 @@ function showCommitment() {
         </p>
     `;
     modal.style.display = 'block';
+    lockBodyScroll();
     
     // Scroll modal to top after content is loaded
     setTimeout(() => {

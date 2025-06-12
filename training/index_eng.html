@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cameraon Transformation - You ARE the Brand</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Cameraon Vision</div>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">Our Solution</a></li>
+                <li><a href="#campaigns">Campaigns</a></li>
+                <li><a href="#your-role">Your Role</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">You ARE the Brand</h1>
+            <p class="hero-subtitle">One Big Problem. One Brilliant Solution. You.</p>
+            <a href="#problem" class="cta-button">Discover Our Vision</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">The Problem We Face</h2>
+            <p class="section-intro">We have one root problem creating three symptoms</p>
+            
+            <!-- Root Problem -->
+            <div class="root-problem">
+                <h3>Root Cause: No Clear Brand Identity</h3>
+                <p>We don't know who we are, so customers don't either</p>
+            </div>
+
+            <!-- Three Symptoms -->
+            <div class="symptoms-grid">
+                <div class="symptom-card" onclick="showDetail('product-problem')">
+                    <div class="symptom-icon">📸</div>
+                    <h4>Product Problem</h4>
+                    <p>Unpredictable Quality</p>
+                    <span class="learn-more">Explore Details →</span>
+                </div>
+                
+                <div class="symptom-card" onclick="showDetail('marketing-problem')">
+                    <div class="symptom-icon">📢</div>
+                    <h4>Marketing Problem</h4>
+                    <p>Wrong Focus</p>
+                    <span class="learn-more">Explore Details →</span>
+                </div>
+                
+                <div class="symptom-card" onclick="showDetail('hr-problem')">
+                    <div class="symptom-icon">👥</div>
+                    <h4>HR Problem</h4>
+                    <p>Hidden Potential</p>
+                    <span class="learn-more">Explore Details →</span>
+                </div>
+            </div>
+
+            <!-- Kurtosis Visual -->
+            <div class="kurtosis-section">
+                <h3>Understanding Our Quality Problem</h3>
+                <div class="kurtosis-visual">
+                    <canvas id="kurtosisChart"></canvas>
+                </div>
+                <div class="kurtosis-explanation">
+                    <div class="current-state">
+                        <h4>😰 Current: Low Kurtosis</h4>
+                        <ul>
+                            <li>50% amazing photos</li>
+                            <li>50% terrible photos</li>
+                            <li>Creating anti-fans daily</li>
+                            <li>Like Russian roulette</li>
+                        </ul>
+                    </div>
+                    <div class="future-state">
+                        <h4>😊 Goal: High Kurtosis</h4>
+                        <ul>
+                            <li>90% good experiences</li>
+                            <li>Predictable satisfaction</li>
+                            <li>Everyone becomes a fan</li>
+                            <li>Trust through consistency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marriage Analogy -->
+            <div class="analogy-section">
+                <h3>The Marriage Principle</h3>
+                <div class="analogy-content">
+                    <p class="analogy-quote">"In choosing a life partner, absence of major flaws beats abundance of amazing qualities"</p>
+                    <div class="analogy-comparison">
+                        <div class="option">
+                            <h4>Partner A</h4>
+                            <p>Sometimes amazing (10/10)<br>Sometimes terrible (2/10)</p>
+                            <span class="verdict">❌ Too risky</span>
+                        </div>
+                        <div class="option">
+                            <h4>Partner B</h4>
+                            <p>Always pretty good (7/10)<br>Consistently caring</p>
+                            <span class="verdict">✅ Marriage material</span>
+                        </div>
+                    </div>
+                    <p class="analogy-lesson">Customers think the same way about businesses!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Our Brilliant Solution</h2>
+            <p class="section-intro">Every action solves all three problems at once</p>
+            
+            <!-- Triple Impact Wheel -->
+            <div class="triple-impact">
+                <h3>The Triple Impact Design</h3>
+                <div class="impact-wheel">
+                    <div class="wheel-center">Your<br>Action</div>
+                    <div class="impact-circle product">Product<br>Better</div>
+                    <div class="impact-circle marketing">Marketing<br>Content</div>
+                    <div class="impact-circle hr">Staff<br>Connection</div>
+                </div>
+                <p class="impact-explanation">Traditional businesses solve problems separately. We solve all three with every action.</p>
+            </div>
+
+            <!-- Comparison -->
+            <div class="approach-comparison">
+                <div class="approach traditional">
+                    <h4>❌ Traditional Approach</h4>
+                    <ul>
+                        <li>Product team fixes quality</li>
+                        <li>Marketing runs separate ads</li>
+                        <li>HR trains staff alone</li>
+                    </ul>
+                    <p class="result">Result: Weak, disconnected</p>
+                </div>
+                <div class="approach our-way">
+                    <h4>✅ Our Approach</h4>
+                    <ul>
+                        <li>Every action improves product</li>
+                        <li>Every action creates content</li>
+                        <li>Every action empowers you</li>
+                    </ul>
+                    <p class="result">Result: Powerful, unified</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaigns Section -->
+    <section id="campaigns" class="section">
+        <div class="container">
+            <h2 class="section-title">Four Powerful Campaigns</h2>
+            <p class="section-intro">Each designed to make YOU the hero</p>
+            
+            <div class="campaigns-grid">
+                <!-- FWB Campaign -->
+                <div class="campaign-card" onclick="expandCampaign('fwb')">
+                    <h3>🎯 FWB (Friend With Booth)</h3>
+                    <p class="campaign-tagline">Turn chaos into fun</p>
+                    <div class="campaign-flow">
+                        <span>Spot friendly group</span>
+                        <span>→</span>
+                        <span>"You look so friendly..."</span>
+                        <span>→</span>
+                        <span>Free challenge shot</span>
+                        <span>→</span>
+                        <span>Viral content</span>
+                    </div>
+                    <div class="campaign-impacts">
+                        <span class="impact">📸 Variance becomes feature</span>
+                        <span class="impact">📢 Natural viral content</span>
+                        <span class="impact">💝 You become gift-giver</span>
+                    </div>
+                </div>
+
+                <!-- Coin Game -->
+                <div class="campaign-card" onclick="expandCampaign('coin')">
+                    <h3>🎮 Coin Game System</h3>
+                    <p class="campaign-tagline">From transaction to interaction</p>
+                    <div class="campaign-flow">
+                        <span>3 free coins</span>
+                        <span>→</span>
+                        <span>Want 4th?</span>
+                        <span>→</span>
+                        <span>Rock-paper-scissors!</span>
+                        <span>→</span>
+                        <span>New friend made</span>
+                    </div>
+                    <div class="campaign-impacts">
+                        <span class="impact">📸 Added value experience</span>
+                        <span class="impact">📢 15-minute engagement</span>
+                        <span class="impact">🎯 Playful connection</span>
+                    </div>
+                </div>
+
+                <!-- Link Friendship -->
+                <div class="campaign-card" onclick="expandCampaign('link')">
+                    <h3>🔗 Link Your Friendship</h3>
+                    <p class="campaign-tagline">Six friends, six daily ads</p>
+                    <div class="campaign-flow">
+                        <span>6+ group</span>
+                        <span>→</span>
+                        <span>Surprise mini photos</span>
+                        <span>→</span>
+                        <span>Phone decorations</span>
+                        <span>→</span>
+                        <span>Daily reminders</span>
+                    </div>
+                    <div class="campaign-impacts">
+                        <span class="impact">📸 Maximize equipment</span>
+                        <span class="impact">📢 Walking advertisements</span>
+                        <span class="impact">🎁 Surprise delight moment</span>
+                    </div>
+                </div>
+
+                <!-- Listen Voice -->
+                <div class="campaign-card" onclick="expandCampaign('voice')">
+                    <h3>📢 Listen Your Voice</h3>
+                    <p class="campaign-tagline">Problems become stories</p>
+                    <div class="campaign-flow">
+                        <span>Exit feedback</span>
+                        <span>→</span>
+                        <span>20,000 won voucher</span>
+                        <span>→</span>
+                        <span>We fix it</span>
+                        <span>→</span>
+                        <span>Success story</span>
+                    </div>
+                    <div class="campaign-impacts">
+                        <span class="impact">📸 Rapid improvement</span>
+                        <span class="impact">📢 "We care" content</span>
+                        <span class="impact">👂 Direct communication</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Funnel Visual -->
+            <div class="funnel-section">
+                <h3>Why These Campaigns Matter</h3>
+                <div class="funnel-visual">
+                    <div class="funnel-stage awareness">
+                        <h4>Awareness ✓</h4>
+                        <p>People know we exist</p>
+                    </div>
+                    <div class="funnel-stage consideration">
+                        <h4>Consideration ✗</h4>
+                        <p>No reason to choose us</p>
+                        <p class="solution">← Campaigns fix this!</p>
+                    </div>
+                    <div class="funnel-stage conversion">
+                        <h4>Conversion ?</h4>
+                        <p>Depends on consideration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Role Section -->
+    <section id="your-role" class="section alt-bg">
+        <div class="container">
+            <h2 class="section-title">Your New Superpower</h2>
+            <p class="section-intro">You're not an employee. You're the reason people come back.</p>
+            
+            <!-- Transformation -->
+            <div class="role-transformation">
+                <div class="old-role">
+                    <h3>❌ Old Role</h3>
+                    <ul>
+                        <li>Button pusher</li>
+                        <li>Rule follower</li>
+                        <li>Service provider</li>
+                        <li>Photo operator</li>
+                    </ul>
+                </div>
+                <div class="arrow-transform">→</div>
+                <div class="new-role">
+                    <h3>✅ New Role</h3>
+                    <ul>
+                        <li>Experience creator</li>
+                        <li>Rule breaker (for joy)</li>
+                        <li>Memory maker</li>
+                        <li>Friend collector</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Daily Mission -->
+            <div class="daily-mission">
+                <h3>Your Daily Mission</h3>
+                <div class="mission-question">
+                    <p>Before every interaction, ask yourself:</p>
+                    <h4>"How can I make them grateful to ME?"</h4>
+                </div>
+                <div class="mission-examples">
+                    <div class="example">
+                        <span class="icon">🎮</span>
+                        <p>Play a game?</p>
+                    </div>
+                    <div class="example">
+                        <span class="icon">🎁</span>
+                        <p>Give a surprise?</p>
+                    </div>
+                    <div class="example">
+                        <span class="icon">💝</span>
+                        <p>Break a rule for them?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Metrics -->
+            <div class="metrics-evolution">
+                <h3>What Success Looks Like</h3>
+                <div class="metrics-comparison">
+                    <div class="old-metrics">
+                        <h4>Old Metrics ❌</h4>
+                        <ul>
+                            <li>Photos taken</li>
+                            <li>Revenue per customer</li>
+                            <li>Processing speed</li>
+                        </ul>
+                    </div>
+                    <div class="new-metrics">
+                        <h4>New Metrics ✅</h4>
+                        <ul>
+                            <li>"Thank you [your name]"</li>
+                            <li>Smiles created</li>
+                            <li>Friends made today</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="metrics-key">The only question that matters: <strong>"Did you make a fan of yourself today?"</strong></p>
+            </div>
+
+            <!-- Competitive Advantage -->
+            <div class="competitive-advantage">
+                <h3>Why This Makes Us Unbeatable</h3>
+                <div class="can-cannot">
+                    <div class="can-copy">
+                        <h4>What Competitors CAN Copy:</h4>
+                        <ul>
+                            <li>✓ Our equipment</li>
+                            <li>✓ Our campaigns</li>
+                            <li>✓ Our prices</li>
+                        </ul>
+                    </div>
+                    <div class="cannot-copy">
+                        <h4>What They CANNOT Copy:</h4>
+                        <ul>
+                            <li>✗ Your genuine smile</li>
+                            <li>✗ Your playful spirit</li>
+                            <li>✗ The connections you create</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="advantage-statement">YOU are our sustainable competitive advantage</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="section">
+        <div class="container">
+            <h2 class="section-title">The Transformation Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">Now</div>
+                    <h4>"That photobooth place"</h4>
+                    <p>Inconsistent quality, unclear identity</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Month 1</div>
+                    <h4>"Why is this place different?"</h4>
+                    <p>Customers notice something special</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Month 3</div>
+                    <h4>"The fun place with amazing staff"</h4>
+                    <p>Clear differentiation emerges</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">Month 6</div>
+                    <h4>"Where friends go to celebrate"</h4>
+                    <p>THE destination for groups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform?</h2>
+            <p>This only works if you believe: You ARE the product.</p>
+            <p>Not the camera. Not the prints. YOU.</p>
+            <button class="cta-button" onclick="showCommitment()">I'm Ready to Be the Brand</button>
+        </div>
+    </section>
+
+    <!-- Detail Modals -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
